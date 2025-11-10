@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cyberpunk Color Palette */
+    --background: 200 18% 5%;
+    --foreground: 180 100% 95%;
+
+    --card: 200 20% 8%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 200 20% 8%;
+    --popover-foreground: 180 100% 95%;
+
+    /* Neon Cyan Primary */
+    --primary: 180 100% 50%;
+    --primary-foreground: 200 18% 5%;
+    --primary-glow: 180 100% 65%;
+
+    /* Electric Violet Secondary */
+    --secondary: 271 76% 53%;
+    --secondary-foreground: 180 100% 95%;
+    --secondary-glow: 271 76% 70%;
+
+    /* Deep Navy Muted */
+    --muted: 200 18% 15%;
+    --muted-foreground: 180 50% 70%;
+
+    /* Violet Accent */
+    --accent: 271 76% 53%;
+    --accent-foreground: 180 100% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 180 100% 95%;
+
+    /* Glass borders and inputs */
+    --border: 180 100% 50% / 0.2;
+    --input: 200 20% 12%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 18% 5%), hsl(271 76% 53%), hsl(180 100% 50%));
+    --gradient-glow: radial-gradient(circle, hsl(180 100% 50% / 0.3), transparent);
+    --gradient-glass: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(271 76% 53% / 0.1));
+
+    /* Shadows and glows */
+    --shadow-neon-cyan: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
+    --shadow-neon-violet: 0 0 20px hsl(271 76% 53% / 0.5), 0 0 40px hsl(271 76% 53% / 0.3);
+    --shadow-glass: 0 8px 32px 0 hsl(200 18% 5% / 0.37);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 200 20% 8%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 200 18% 5%;
+    --sidebar-accent: 200 18% 15%;
+    --sidebar-accent-foreground: 180 100% 95%;
+    --sidebar-border: 180 100% 50% / 0.2;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glass {
+    background: hsl(var(--card) / 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: var(--shadow-neon-cyan);
+    transition: var(--transition-smooth);
+  }
+
+  .neon-glow:hover {
+    box-shadow: 0 0 30px hsl(180 100% 50% / 0.6), 0 0 60px hsl(180 100% 50% / 0.4);
+  }
+
+  .neon-glow-violet {
+    box-shadow: var(--shadow-neon-violet);
+    transition: var(--transition-smooth);
+  }
+
+  .neon-glow-violet:hover {
+    box-shadow: 0 0 30px hsl(271 76% 53% / 0.6), 0 0 60px hsl(271 76% 53% / 0.4);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Particle container */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
