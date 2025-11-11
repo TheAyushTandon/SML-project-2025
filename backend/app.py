@@ -18,6 +18,9 @@ from src.models.anomaly_model import PasswordAutoencoder
 from src.generator.password_generator import generate_password
 from src.features.extractors import extract_features
 from src.config import MODEL_A_PATH, MODEL_C_PATH
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 
 # ------------------------------------------------------------
 # Initialize FastAPI
