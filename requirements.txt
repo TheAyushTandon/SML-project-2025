@@ -1,23 +1,11 @@
-# ---- Core API ----
-fastapi==0.115.0
-uvicorn==0.30.6
-starlette==0.38.6
-
-# ---- ML & Data ----
+fastapi
+uvicorn
 numpy==1.26.4
 pandas==2.2.2
 scikit-learn==1.5.2
 joblib==1.4.2
 lightgbm==4.3.0
-imbalanced-learn==0.12.4
-
-# ---- Deep Learning (if your model uses PyTorch) ----
-torch==2.4.1
-torchaudio==2.4.1
-torchvision==0.19.1
-
-# ---- Utility ----
-python-multipart==0.0.6
-requests==2.32.5
-tqdm==4.66.5
-typing_extensions==4.15.0
+python-multipart
+requests
+tqdm
+typing_extensions
