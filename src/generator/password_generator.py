@@ -12,13 +12,8 @@ from typing import Dict
 import os
 import sys
 
-# Optional: if you later want to re-enable ensemble scoring,
-# you can uncomment these two lines:
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-# from backend.ensemble import evaluate_password  # <- disabled to avoid circular import
-
 # ------------------------------------------------------------
-# 🔹 Leetspeak map and symbol pools
+#  Leetspeak map and symbol pools
 # ------------------------------------------------------------
 LEET_MAP = {
     "a": ["@", "4"],
@@ -33,7 +28,7 @@ LEET_MAP = {
 SYMBOL_POOL = list("!@#$%&*?+-=_")
 
 # ------------------------------------------------------------
-# 🔹 Helper transformations
+#  Helper transformations
 # ------------------------------------------------------------
 def random_capitalize(word: str) -> str:
     """Randomly capitalize ~40% of characters."""
@@ -77,7 +72,7 @@ def ensure_entropy(pw: str) -> str:
     return pw
 
 # ------------------------------------------------------------
-# 🔹 Main Generator Function
+#  Main Generator Function
 # ------------------------------------------------------------
 def generate_password(base: str, n_variants: int = 5) -> Dict:
     """
@@ -105,7 +100,7 @@ def generate_password(base: str, n_variants: int = 5) -> Dict:
         pw = ensure_entropy(pw)
         candidates.append(pw)
 
-    # ⚙️ Placeholder ranking logic (can be upgraded to use ensemble later)
+    # ⚙️ Placeholder ranking logic
     # For now, pick the most diverse-looking password as "best"
     def entropy_approx(pw):
         charset = len(set(pw))
@@ -121,7 +116,7 @@ def generate_password(base: str, n_variants: int = 5) -> Dict:
     }
 
 # ------------------------------------------------------------
-# 🔹 CLI Demo
+#  CLI Demo
 # ------------------------------------------------------------
 if __name__ == "__main__":
     base = input("Enter a word or phrase to base your password on: ").strip()
